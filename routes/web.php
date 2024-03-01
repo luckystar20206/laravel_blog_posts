@@ -13,13 +13,14 @@ use App\Http\Controllers\PostController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// Route Halaman Home
 Route::get('/', function () {
     return view('home', [
         "tittle"=> "Home",
     ]);
 });
 
+// Route Halaman About
 Route::get('/about',function(){
     return view('about', 
     [
@@ -31,7 +32,8 @@ Route::get('/about',function(){
     ]);
 });
 
+// Route Halaman Posts
 Route::get('/posts', [PostController::class , 'index']);
 
-// Halaman Single Post
+// Route Halaman Single Post
 Route::get('/posts/{slug}', [PostController::class, 'show']);
