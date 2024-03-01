@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,66 +31,17 @@ Route::get('/about',function(){
     ]);
 });
 
-Route::get('/blog', function(){
-    $blog_posts = [
-        [
-            "tittle"=>"Judul Post Pertama",
-            "slug" => "judul-post-pertama",
-            "Author"=>"Rangga Saputra",
-            "body"=>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quidem, cumque ipsam quam cum, quos expedita neque quod sapiente ullam adipisci provident quasi odio ex eaque a perferendis impedit enim vero doloremque id natus incidunt modi! Suscipit repellendus modi veniam quam et repudiandae officiis, quidem quia distinctio necessitatibus. Recusandae veritatis, sequi debitis non ducimus cupiditate cum atque reiciendis corrupti quibusdam ex. Itaque illum, error similique temporibus, voluptate architecto adipisci sequi, libero porro ab voluptas debitis omnis dolores accusamus iure ducimus."
-        ],
-        [
-            "tittle"=>"Judul Post Kedua",
-            "slug"=>"judul-post-kedua",
-            "Author"=>"Book Yourself",
-            "body"=>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quidem, cumque ipsam quam cum, quos expedita neque quod sapiente ullam adipisci provident quasi odio ex eaque a perferendis impedit enim vero doloremque id natus incidunt modi! Suscipit repellendus modi veniam quam et repudiandae officiis, quidem quia distinctio necessitatibus. Recusandae veritatis, sequi debitis non ducimus cupiditate cum atque reiciendis corrupti quibusdam ex. Itaque illum, error similique temporibus, voluptate architecto adipisci sequi, libero porro ab voluptas debitis omnis dolores accusamus iure ducimus."
-        ],
-        [
-            "tittle"=>"Judul Post Ketiga",
-            "slug"=>"judul-post-ketiga",
-            "Author"=>"Bang Tamvan",
-            "body"=>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quidem, cumque ipsam quam cum, quos expedita neque quod sapiente ullam adipisci provident quasi odio ex eaque a perferendis impedit enim vero doloremque id natus incidunt modi! Suscipit repellendus modi veniam quam et repudiandae officiis, quidem quia distinctio necessitatibus. Recusandae veritatis, sequi debitis non ducimus cupiditate cum atque reiciendis corrupti quibusdam ex. Itaque illum, error similique temporibus, voluptate architecto adipisci sequi, libero porro ab voluptas debitis omnis dolores accusamus iure ducimus."
-        ]
-];
+Route::get('/posts', function(){
     return view ('posts', [
-        "tittle"=> "Blog",
-        "posts"=>$blog_posts
+        "tittle"=> "Posts",
+        "posts"=> Post::all()
     ]);
 });
 
-
 // Halaman Single Post
-Route::get('posts/{slug}', function($slug){
-    $blog_posts = [
-        [
-            "tittle"=>"Judul Post Pertama",
-            "slug" => "judul-post-pertama",
-            "Author"=>"Rangga Saputra",
-            "body"=>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quidem, cumque ipsam quam cum, quos expedita neque quod sapiente ullam adipisci provident quasi odio ex eaque a perferendis impedit enim vero doloremque id natus incidunt modi! Suscipit repellendus modi veniam quam et repudiandae officiis, quidem quia distinctio necessitatibus. Recusandae veritatis, sequi debitis non ducimus cupiditate cum atque reiciendis corrupti quibusdam ex. Itaque illum, error similique temporibus, voluptate architecto adipisci sequi, libero porro ab voluptas debitis omnis dolores accusamus iure ducimus."
-        ],
-        [
-            "tittle"=>"Judul Post Kedua",
-            "slug"=>"judul-post-kedua",
-            "Author"=>"Book Yourself",
-            "body"=>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quidem, cumque ipsam quam cum, quos expedita neque quod sapiente ullam adipisci provident quasi odio ex eaque a perferendis impedit enim vero doloremque id natus incidunt modi! Suscipit repellendus modi veniam quam et repudiandae officiis, quidem quia distinctio necessitatibus. Recusandae veritatis, sequi debitis non ducimus cupiditate cum atque reiciendis corrupti quibusdam ex. Itaque illum, error similique temporibus, voluptate architecto adipisci sequi, libero porro ab voluptas debitis omnis dolores accusamus iure ducimus."
-        ],
-        [
-            "tittle"=>"Judul Post Ketiga",
-            "slug"=>"judul-post-ketiga",
-            "Author"=>"Bang Tamvan",
-            "body"=>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quidem, cumque ipsam quam cum, quos expedita neque quod sapiente ullam adipisci provident quasi odio ex eaque a perferendis impedit enim vero doloremque id natus incidunt modi! Suscipit repellendus modi veniam quam et repudiandae officiis, quidem quia distinctio necessitatibus. Recusandae veritatis, sequi debitis non ducimus cupiditate cum atque reiciendis corrupti quibusdam ex. Itaque illum, error similique temporibus, voluptate architecto adipisci sequi, libero porro ab voluptas debitis omnis dolores accusamus iure ducimus."
-        ]
-];
-
-    $new_post =[];
-    foreach ($blog_posts as $post){
-        if($post["slug"] === $slug){
-            $new_post = $post;
-        }
-    }
-
+Route::get('/posts/{slug}', function($slug){
     return view('post', [
         "tittle"=>"Single Post",
-        "post"=>$new_post
+        "post"=> Post::find($slug)
     ]);
 });
