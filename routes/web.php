@@ -44,7 +44,12 @@ Route::get('/blog', function(){
             "Author"=>"Book Yourself",
             "body"=>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quidem, cumque ipsam quam cum, quos expedita neque quod sapiente ullam adipisci provident quasi odio ex eaque a perferendis impedit enim vero doloremque id natus incidunt modi! Suscipit repellendus modi veniam quam et repudiandae officiis, quidem quia distinctio necessitatibus. Recusandae veritatis, sequi debitis non ducimus cupiditate cum atque reiciendis corrupti quibusdam ex. Itaque illum, error similique temporibus, voluptate architecto adipisci sequi, libero porro ab voluptas debitis omnis dolores accusamus iure ducimus."
         ],
-        
+        [
+            "tittle"=>"Judul Post Ketiga",
+            "slug"=>"judul-post-ketiga",
+            "Author"=>"Bang Tamvan",
+            "body"=>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quidem, cumque ipsam quam cum, quos expedita neque quod sapiente ullam adipisci provident quasi odio ex eaque a perferendis impedit enim vero doloremque id natus incidunt modi! Suscipit repellendus modi veniam quam et repudiandae officiis, quidem quia distinctio necessitatibus. Recusandae veritatis, sequi debitis non ducimus cupiditate cum atque reiciendis corrupti quibusdam ex. Itaque illum, error similique temporibus, voluptate architecto adipisci sequi, libero porro ab voluptas debitis omnis dolores accusamus iure ducimus."
+        ]
 ];
     return view ('posts', [
         "tittle"=> "Blog",
@@ -68,7 +73,12 @@ Route::get('posts/{slug}', function($slug){
             "Author"=>"Book Yourself",
             "body"=>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quidem, cumque ipsam quam cum, quos expedita neque quod sapiente ullam adipisci provident quasi odio ex eaque a perferendis impedit enim vero doloremque id natus incidunt modi! Suscipit repellendus modi veniam quam et repudiandae officiis, quidem quia distinctio necessitatibus. Recusandae veritatis, sequi debitis non ducimus cupiditate cum atque reiciendis corrupti quibusdam ex. Itaque illum, error similique temporibus, voluptate architecto adipisci sequi, libero porro ab voluptas debitis omnis dolores accusamus iure ducimus."
         ],
-        
+        [
+            "tittle"=>"Judul Post Ketiga",
+            "slug"=>"judul-post-ketiga",
+            "Author"=>"Bang Tamvan",
+            "body"=>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quidem, cumque ipsam quam cum, quos expedita neque quod sapiente ullam adipisci provident quasi odio ex eaque a perferendis impedit enim vero doloremque id natus incidunt modi! Suscipit repellendus modi veniam quam et repudiandae officiis, quidem quia distinctio necessitatibus. Recusandae veritatis, sequi debitis non ducimus cupiditate cum atque reiciendis corrupti quibusdam ex. Itaque illum, error similique temporibus, voluptate architecto adipisci sequi, libero porro ab voluptas debitis omnis dolores accusamus iure ducimus."
+        ]
 ];
 
     $new_post =[];
