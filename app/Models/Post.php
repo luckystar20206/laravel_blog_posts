@@ -9,4 +9,8 @@ class Post extends Model
 {
     use HasFactory;
 
+    // Bisa menggunakan fillable atau guarded
+    // protected $fillable  = ['tittle', 'excerpt', 'body'];
+
+    protected $guarded = ['id'];
 }
