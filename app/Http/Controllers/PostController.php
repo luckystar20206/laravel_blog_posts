@@ -8,11 +8,11 @@ class PostController extends Controller
 {
     public function index(){
         return view ('posts', [
-            "tittle"=> "Posts",
+            "tittle"=> "All Posts",
             // Menampilkan semua data dari database
             // "posts"=> Post::all()
             // Menampilkan data berdasarkan postingan terbaru
-            'posts' => Post::latest()->get(),
+            'posts' => Post::with(['author', 'category'])->latest()->get(),
         ]);
     }
     public function show(Post $post){
