@@ -12,7 +12,7 @@ class PostController extends Controller
             // Menampilkan semua data dari database
             // "posts"=> Post::all()
             // Menampilkan data berdasarkan postingan terbaru
-            'posts' => Post::with(['author', 'category'])->latest()->get(),
+            'posts' => Post::latest()->get()
         ]);
     }
     public function show(Post $post){

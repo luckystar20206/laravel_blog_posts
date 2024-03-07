@@ -21,8 +21,18 @@ class DatabaseSeeder extends Seeder
     {
         // Jika ingin mengggunakan seeder factory
 
-        User::factory(3)->create();
-        Post::factory(20)->create();
+        
+        
+        // User::factory(3)->create();
+        // Category::create([
+        //     'name'=>'Web Programming',
+        //     'slug'=>'Web-Programming',
+        // ]);
+        // Category::create([
+        //     'name'=>'Personal',
+        //     'slug'=>'personal',
+        // ]);
+        Post::factory(5)->create();
         //Jika Ingin Menggunakan Seeder Manual seperti di php artisan tinker 
 
         // User::create([
@@ -36,15 +46,6 @@ class DatabaseSeeder extends Seeder
         //     'email'=>'alma@gmail.com',
         //     'password'=> bcrypt('12345')
         // ]);
-
-        Category::create([
-            'name'=>'Web Programming',
-            'slug'=>'Web-Programming',
-        ]);
-        Category::create([
-            'name'=>'Personal',
-            'slug'=>'personal',
-        ]);
 
         // Post::create([
         //     'tittle'=>'Judul Pertama',
