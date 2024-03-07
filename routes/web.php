@@ -48,6 +48,7 @@ Route::get('/authors/{author:username}', function(User $author){
     ]);
 });
 
+// Route Mendapatkan halaman categories
 Route::get('/categories', function(){
     return view ('categories',[
         "tittle" => "Post Categories",
@@ -55,6 +56,7 @@ Route::get('/categories', function(){
     ]);
 });
 
+// Route Mendapatkan Category berdasarkan slug
 Route::get('/categories/{category:slug}', function(Category $category){
     return view('posts',[
         "tittle" => "Post By Category: $category->name",
