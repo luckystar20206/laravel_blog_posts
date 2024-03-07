@@ -40,6 +40,7 @@ Route::get('/posts', [PostController::class , 'index']);
 // Route Halaman Single Post
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
+// Route mendapatkan data authors
 Route::get('/authors/{author:username}', function(User $author){
     return view('posts',[
         "tittle" => "Post By: $author->name",
