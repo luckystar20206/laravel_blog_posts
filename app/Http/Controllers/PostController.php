@@ -8,7 +8,8 @@ class PostController extends Controller
 {
     public function index(){
         return view ('posts', [
-            "tittle"=> "All Posts",
+            "tittle"=> "Posts",
+            "active"=> "posts",
             // Menampilkan semua data dari database
             // "posts"=> Post::all()
             // Menampilkan data berdasarkan postingan terbaru
@@ -19,6 +20,7 @@ class PostController extends Controller
         
         return view('post', [
             "tittle"=>"Single Post",
+            "active"=> "posts",
             "post"=> $post
         ]);
     }

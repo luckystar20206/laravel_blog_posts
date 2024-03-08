@@ -19,6 +19,7 @@ use App\Models\User;
 Route::get('/', function () {
     return view('home', [
         "tittle"=> "Home",
+        "active" => "home"
     ]);
 });
 
@@ -26,6 +27,7 @@ Route::get('/', function () {
 Route::get('/about',function(){
     return view('about', 
     [
+        "active"=>"about",
         "tittle"=> "About",
         "name"=>"Rangga Saputra",
         "email"=>"ranggasaputra@gmail.com",
@@ -40,18 +42,11 @@ Route::get('/posts', [PostController::class , 'index']);
 // Route Halaman Single Post
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
-// Route mendapatkan data authors
-Route::get('/authors/{author:username}', function(User $author){
-    return view('posts',[
-        "tittle" => "Post By: $author->name",
-        "posts" => $author->posts->load(['category', 'author']),
-    ]);
-});
-
 // Route Mendapatkan halaman categories
 Route::get('/categories', function(){
     return view ('categories',[
-        "tittle" => "Post Categories",
+        "tittle" => "Categories",
+        "active" => "categories",
         "categories" => Category::all(),
     ]);
 });
@@ -60,7 +55,16 @@ Route::get('/categories', function(){
 Route::get('/categories/{category:slug}', function(Category $category){
     return view('posts',[
         "tittle" => "Post By Category: $category->name",
+        "active" => "categories",
         "posts" => $category->posts->load(['category', 'author']),
+    ]);
+});
+
+// Route mendapatkan data authors
+Route::get('/authors/{author:username}', function(User $author){
+    return view('posts',[
+        "tittle" => "Post By: $author->name",
+        "posts" => $author->posts->load(['category', 'author']),
     ]);
 });
 
