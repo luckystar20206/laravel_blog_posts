@@ -23,16 +23,22 @@ class DatabaseSeeder extends Seeder
 
         
         
-        // User::factory(3)->create();
-        // Category::create([
-        //     'name'=>'Web Programming',
-        //     'slug'=>'Web-Programming',
-        // ]);
-        // Category::create([
-        //     'name'=>'Personal',
-        //     'slug'=>'personal',
-        // ]);
-        Post::factory(5)->create();
+        User::factory(3)->create();
+        Category::create([
+            'name'=>'Web Programming',
+            'slug'=>'Web-Programming',
+        ]);
+        Category::create([
+            'name'=>'Web Design',
+            'slug'=>'Web-Design',
+        ]);
+        Category::create([
+            'name'=>'Personal',
+            'slug'=>'personal',
+        ]);
+        Post::factory(20)->create();
+
+
         //Jika Ingin Menggunakan Seeder Manual seperti di php artisan tinker 
 
         // User::create([
