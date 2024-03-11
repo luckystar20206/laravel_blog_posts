@@ -2,6 +2,7 @@
 
     @section('container')
 
+    {{-- Body Categories --}}
     <h1 class="mb-5">Post Categories</h1>
 
     <div class="container">
@@ -20,5 +21,7 @@
             @endforeach
         </div>
     </div>
+
+    {{-- End Body --}}
         
     @endsection
