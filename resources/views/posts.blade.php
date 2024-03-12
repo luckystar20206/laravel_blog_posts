@@ -3,7 +3,18 @@
 @extends('layouts.main')
 
     @section('container')
-    <h1 class="mb-4">{{ $tittle }}</h1>
+    <h1 class="mb-3 text-center">{{ $tittle }}</h1>
+
+    <div class="row justify-content-center mb-3">
+      <div class="col-md-6">
+        <form action="/posts">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search.." name="search">
+            <button class="btn btn-outline-primary" type="submit">Search</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     {{-- Kondisi untuk menampilkan Hero --}}
 
@@ -23,10 +34,7 @@
 
         </div>
     </div>
-        
-    @else
-    <p class="text-center fs-4">No Post Found.</p>
-    @endif
+      
 
     {{-- End Hero --}}
 
@@ -53,5 +61,9 @@
       </div>
     </div>
     {{-- End Foreach Untuk Card --}}
+
+    @else
+    <p class="text-center fs-4">No Post Found.</p>
+    @endif
         
     @endsection
