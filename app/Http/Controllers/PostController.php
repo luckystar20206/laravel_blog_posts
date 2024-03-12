@@ -16,7 +16,7 @@ class PostController extends Controller
         }
         if(request('author')){
             $author = User::firstWhere('username', request('author'));
-            $tittle = 'By: '. $author->name;
+            $tittle = 'by: '. $author->name;
         }
 
         return view ('posts', [
@@ -25,7 +25,7 @@ class PostController extends Controller
             // Menampilkan semua data dari database
             // "posts"=> Post::all()
             // Menampilkan data berdasarkan postingan terbaru
-            'posts' => Post::latest()->filter(request(['search', 'category', 'author']))->get()
+            'posts' => Post::latest()->filter(request(['search', 'category', 'author']))->paginate(7)->withQueryString()
         ]);
     }
     public function show(Post $post){
