@@ -7,13 +7,20 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function index(){
+
+        $posts = Post::latest();
+        if(request('search')){
+            $posts->where('tittle', 'like', '%' . request('search') . '%')
+                    ->orWhere('body', 'like', '%' . request('search') . '%');
+        }
+        
         return view ('posts', [
             "tittle"=> "Posts",
             "active"=> "posts",
             // Menampilkan semua data dari database
             // "posts"=> Post::all()
             // Menampilkan data berdasarkan postingan terbaru
-            'posts' => Post::latest()->get()
+            'posts' => $posts->get()
         ]);
     }
     public function show(Post $post){
