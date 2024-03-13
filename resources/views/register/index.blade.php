@@ -5,8 +5,8 @@
   <div class="col-lg-5 mt-4">
     <main class="form-registration w-100 m-auto">
       <h1 class="h3 mb-3 fw-normal text-center">Registration Form</h1>
-      <form>
-
+      <form action="/register" method="post">
+        @csrf
         <div class="form-floating">
             <input type="text" class="form-control rounded-top" id="name" placeholder="Name" name="name">
             <label for="name">Name</label>

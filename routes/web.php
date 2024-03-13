@@ -55,7 +55,9 @@ Route::get('/categories', function(){
 });
 
 Route::get('/login', [LoginController::class, 'index']);
+
 Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'store']);
 
 // Bisa menggunakan Route ini utuk mendapatkan parameter agar berganti halaman/bisa pake yg di models
 
