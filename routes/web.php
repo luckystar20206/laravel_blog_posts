@@ -58,15 +58,16 @@ Route::get('/categories', function(){
 
 
 // Route Halaman Login
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
 // Route Halaman Register
-Route::get('/register', [RegisterController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
 // Route Halaman Dashboard
-Route::get('/dashboard', [DashboardController::class , 'index']);
+Route::get('/dashboard', [DashboardController::class , 'index'])->middleware('auth');
 
 
 // Bisa menggunakan Route ini utuk mendapatkan parameter agar berganti halaman/bisa pake yg di models
