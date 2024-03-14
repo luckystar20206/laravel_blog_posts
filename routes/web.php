@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DashboardController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -54,11 +56,18 @@ Route::get('/categories', function(){
     ]);
 });
 
+
+// Route Halaman Login
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
 
+// Route Halaman Register
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'store']);
+
+// Route Halaman Dashboard
+Route::get('/dashboard', [DashboardController::class , 'index']);
+
 
 // Bisa menggunakan Route ini utuk mendapatkan parameter agar berganti halaman/bisa pake yg di models
 
