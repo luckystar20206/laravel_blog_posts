@@ -70,24 +70,4 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/dashboard', [DashboardController::class , 'index'])->middleware('auth');
 
 
-// Bisa menggunakan Route ini utuk mendapatkan parameter agar berganti halaman/bisa pake yg di models
-
-// Route Mendapatkan Category berdasarkan slug
-// Route::get('/categories/{category:slug}', function(Category $category){
-//     return view('posts',[
-//         "tittle" => "Post By Category: $category->name",
-//         "active" => "categories",
-//         "posts" => $category->posts->load(['category', 'author']),
-//     ]);
-// });
-
-// Route mendapatkan data authors
-// Route::get('/authors/{author:username}', function(User $author){
-//     return view('posts',[
-//         "tittle" => "Post By: $author->name",
-//         "active"=> "posts",
-//         "posts" => $author->posts->load(['category', 'author']),
-//     ]);
-// });
-
 
