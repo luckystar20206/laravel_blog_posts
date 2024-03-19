@@ -1,3 +1,5 @@
+{{-- Main Dashboard --}}
+
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head><script src="/js/color-modes.js"></script>
@@ -189,3 +191,5 @@
 <script src="/js/bootstrap.bundle.min.js"></script>
    <script src="/js/dashboard.js"></script>
 </html>
+
+{{-- End Main --}}
