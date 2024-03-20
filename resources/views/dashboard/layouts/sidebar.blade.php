@@ -17,7 +17,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="/dashboard/posts" style="color: black">
+              <a class="nav-link d-flex align-items-center gap-2 active" href="/dashboard/posts" style="color: black">
                 <span data-feather="file-text" style="color:black"></span>
                 My Posts
               </a>

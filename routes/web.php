@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Models\Category;
 
 
@@ -7,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-
+use App\Http\Controllers\DashboardPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,6 @@ use App\Http\Controllers\RegisterController;
 Route::get('/', function () {
     return view('home', [
         "tittle"=> "Home",
-        "active" => "home"
     ]);
 });
 
@@ -31,7 +31,6 @@ Route::get('/', function () {
 Route::get('/about',function(){
     return view('about', 
     [
-        "active"=>"about",
         "tittle"=> "About",
         "name"=>"Rangga Saputra",
         "email"=>"ranggasaputra@gmail.com",
@@ -50,7 +49,6 @@ Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 Route::get('/categories', function(){
     return view ('categories',[
         "tittle" => "Categories",
-        "active" => "categories",
         "categories" => Category::all(),
     ]);
 });
@@ -71,5 +69,7 @@ Route::get('/dashboard', function(){
     return view ('dashboard.index');
 })->middleware('auth');
 
+// Route Crud Dashboard Post
+Route::resource('dashboard/posts', DashboardPostController::class)->middleware('auth');
 
 
