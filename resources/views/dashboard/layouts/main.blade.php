@@ -190,6 +190,12 @@
 
 <script src="/js/bootstrap.bundle.min.js"></script>
    <script src="/js/dashboard.js"></script>
+   <script src="https://unpkg.com/feather-icons"></script>
+   
+   <script>
+    feather.replace();
+  </script>
+   </body>
 </html>
 
 {{-- End Main --}}
