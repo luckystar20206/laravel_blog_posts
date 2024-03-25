@@ -13,18 +13,25 @@
           <label for="tittle" class="form-label">Tittle</label>
           <input type="text" class="form-control" id="tittle" name="tittle">
         </div>
+
         <div class="mb-3">
-          <label for="tittle" class="form-label">Tittle</label>
-          <input type="text" class="form-control" id="tittle" name="tittle">
-        </div>
-        <div class="mb-3">
-          <label for="tittle" class="form-label">Tittle</label>
-          <input type="text" class="form-control" id="tittle" name="tittle">
+          <label for="slug" class="form-label">Slug</label>
+          <input type="text" class="form-control" id="slug" name="slug" disabled readonly>
         </div>
        
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Create Post</button>
     </form>
 </div>
 
+<script>
+  const tittle = document.querySelector('#tittle');
+  const slug = document.querySelector('#slug')
+
+  tittle.addEventListener('change', function(){
+    fetch('/dashboard/posts/checkSlug?tittle='+ tittle.value)
+    .then(response => response.json())
+    .then(data =>slug.value = data.slug)
+  });
+</script>
 
 @endsection

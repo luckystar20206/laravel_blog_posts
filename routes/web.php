@@ -69,6 +69,10 @@ Route::get('/dashboard', function(){
     return view ('dashboard.index');
 })->middleware('auth');
 
+
+// Route untuk menampung request dari slug
+Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
+
 // Route Crud Dashboard Post
 Route::resource('dashboard/posts', DashboardPostController::class)->middleware('auth');
 

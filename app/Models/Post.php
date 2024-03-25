@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Post extends Model
 {
-    use HasFactory;
+    use Sluggable, HasFactory;
 
     // Fillable mengizinkan manipulasi database berdasarkan kolom
     // protected $fillable  = ['tittle', 'excerpt', 'body'];
@@ -52,4 +53,15 @@ class Post extends Model
         {
             return 'slug';
         }
+
+        // Fungsi Sluggable agar ketika form title diinputkan otomatis slug tertulis
+
+        public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
 }
