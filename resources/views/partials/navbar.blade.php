@@ -1,5 +1,5 @@
 
-
+{{-- Navbar --}}
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
       <a class="navbar-brand nav-link {{ Request::is('/') ? 'active' : '' }}" href="/">Rangga Saputra</a>
@@ -48,3 +48,4 @@
       </div>
     </div>
   </nav>
+  {{-- end navbar --}}
