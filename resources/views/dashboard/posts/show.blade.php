@@ -10,7 +10,14 @@
                  
                     <a href="/dashboard/posts" class="badge bg-success text-decoration-none" ><span data-feather="arrow-left"></span> Back to all My Posts</a>
                     <a href="" class="badge bg-warning text-decoration-none"><span data-feather="edit"></span> Edit</a>
-                    <a href="" class="badge bg-danger text-decoration-none"><span data-feather="trash"></span> Delete</a>
+
+                    <form action="/dashboard/posts/{{ $post->slug }}" method="post" class="d-inline">
+                        @method('delete')
+                        @csrf
+                        <button class="badge bg-danger border-0" onclick="return confirm('Are you sure want delete this post?')">
+                          <span data-feather="trash"></span> Delete  
+                        </button>
+                      </form>
 
                     <img src="https://source.unsplash.com/1200x400?{{ $post->category->name }}" alt="{{ $post->category->name }}" class="img-fluid mt-3">
                     <article class="my-3 fs-6">
