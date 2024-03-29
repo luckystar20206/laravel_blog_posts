@@ -27,7 +27,7 @@ class DashboardPostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() //Fungsi untuk pindah halaman dan menampilkan data dari database
     {
         return view('dashboard.posts.create', [
             'categories' => Category::all()
@@ -40,7 +40,7 @@ class DashboardPostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request) //Fungsi untuk menambah data
     {
         // Validasi data untuk form dashboard post
         $validatedData = $request->validate([
@@ -63,7 +63,7 @@ class DashboardPostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Post $post) // fungsi untuk pindah halaman dan hanya menampilkan data saja
     {
         return view('dashboard.posts.show',[
             'post' => $post
@@ -99,12 +99,14 @@ class DashboardPostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Post $post) // fungsi untuk menghapus data
     {
-        //
+        Post::destroy($post->id);
+        return redirect('/dashboard/posts')->with('success', 'post has been Deleted!');
     }
 
-    public function checkSlug(Request $request){
+    public function checkSlug(Request $request) //fungs untuk mengambil otomatis slug dari tittle
+    {
 
         $slug = SlugService::createSlug(Post::class, 'slug', $request->tittle);
         return response()->json(['slug' => $slug]);
