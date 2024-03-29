@@ -101,11 +101,11 @@ class DashboardPostController extends Controller
      */
     public function destroy(Post $post) // fungsi untuk menghapus data
     {
-        Post::destroy($post->id);
+        Post::destroy($post->id); //menghapus data berdasarkan post by id
         return redirect('/dashboard/posts')->with('success', 'post has been Deleted!');
     }
 
-    public function checkSlug(Request $request) //fungs untuk mengambil otomatis slug dari tittle
+    public function checkSlug(Request $request) //fungsi untuk mengambil otomatis slug dari tittle
     {
 
         $slug = SlugService::createSlug(Post::class, 'slug', $request->tittle);
