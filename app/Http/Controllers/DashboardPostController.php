@@ -92,7 +92,24 @@ class DashboardPostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+         // Validasi data untuk form edit dashboard post
+         $rules = [
+            'tittle'=> 'required|max:255',
+            'category_id' => 'required',
+            'body'=> 'required'
+        ];
+        if($request->slug != $post->slug){
+            $rules['slug'] = 'required|unique:posts';
+        }
+        $validatedData = $request->validate($rules);
+
+          // Validasi untuk user id dan untuk excerpt yang mengambil data dari body dipotong hanya 200 kata
+          $validatedData['user_id'] = auth()->user()->id;
+          $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
+  
+          Post::where('id', $post->id)
+                ->update($validatedData);
+          return redirect('/dashboard/posts')->with('success', 'New Post has been Updated!');
     }
 
     /**
