@@ -76,11 +76,13 @@ class DashboardPostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Post $post) //untuk menampilkan halaman edit
     {
-        //
+        return view('dashboard.posts.edit', [
+            'post'=> $post,
+            'categories' => Category::all()
+        ]);
     }
-
     /**
      * Update the specified resource in storage.
      *

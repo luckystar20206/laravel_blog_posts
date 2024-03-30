@@ -54,7 +54,7 @@
                 <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info">
                     <span data-feather="eye"></span>
                 </a>
-                <a href="" class="badge bg-warning" style="margin-left: 5px;">
+                <a href="/dashboard/posts/{{ $post->slug }}/edit" class="badge bg-warning" style="margin-left: 5px;">
                     <span data-feather="edit"></span>
                 </a>
 
