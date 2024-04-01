@@ -21,7 +21,13 @@ class DatabaseSeeder extends Seeder
     {
         // Jika ingin mengggunakan seeder factory
 
-        
+        User::create([
+            'name'=>'Rangga Saputra',
+            'username'=>'Rangga Saputra',
+            'email'=>'rangga@gmail.com',
+            'email_verified_at'=> now(),
+            'password'=> bcrypt('password')
+        ]);
         
         User::factory(3)->create();
         Category::create([
@@ -43,6 +49,7 @@ class DatabaseSeeder extends Seeder
 
         // User::create([
         //     'name'=>'Rangga Saputra',
+        //     'username'=>'Rangga Saputra',
         //     'email'=>'rangga@gmail.com',
         //     'password'=> bcrypt('12345')
         // ]);
