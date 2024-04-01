@@ -42,15 +42,20 @@ class DashboardPostController extends Controller
      */
     public function store(Request $request) //Fungsi untuk menambah data
     {
-
-        return $request->file('image')->store('post-images');
         // Validasi data untuk form dashboard post
         $validatedData = $request->validate([
             'tittle'=> 'required|max:255',
             'slug' => 'required|unique:posts',
             'category_id' => 'required',
+            'image' => 'required|image|file|max:2048',
             'body'=> 'required'
         ]);
+
+        // Validasi untuk file gambar 
+        if($request->file('image')){
+            $validatedData['image'] = $request->file('image')->store('post-images');
+        }
+        
         // Validasi untuk user id dan untuk excerpt yang mengambil data dari body dipotong hanya 200 kata
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);

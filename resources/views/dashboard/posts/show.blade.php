@@ -19,8 +19,18 @@
                         </button>
                       </form>
 
-                    <img src="https://source.unsplash.com/1200x400?{{ $post->category->name }}" alt="{{ $post->category->name }}" class="img-fluid mt-3">
-                    <article class="my-3 fs-6">
+                      @if($post->image)
+                      {{-- dibawah ini kondisi ketika gambar diisi user --}}
+                      <div style="max-height:350px; overflow:hidden;">
+                        <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}" class="img-fluid mt-3">
+                      </div>
+                      @else
+                      {{-- dibawah ini kondisi ketika gambar tidak diisi user --}}
+                      <img src="https://source.unsplash.com/1200x400?{{ $post->category->name }}" alt="{{ $post->category->name }}" class="img-fluid mt-3">
+                      @endif
+
+
+                      <article class="my-3 fs-6">
                      <p>{!! $post->body !!}</p>
                     </article>
     <a href="/dashboard/posts" class="d-block mt-3">Back my post</a>
