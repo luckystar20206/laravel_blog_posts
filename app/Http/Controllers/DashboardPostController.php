@@ -42,6 +42,8 @@ class DashboardPostController extends Controller
      */
     public function store(Request $request) //Fungsi untuk menambah data
     {
+
+        ddd($request);
         // Validasi data untuk form dashboard post
         $validatedData = $request->validate([
             'tittle'=> 'required|max:255',
