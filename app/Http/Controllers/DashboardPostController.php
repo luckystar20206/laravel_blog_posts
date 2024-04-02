@@ -140,6 +140,11 @@ class DashboardPostController extends Controller
      */
     public function destroy(Post $post) // fungsi untuk menghapus data
     {
+        
+        if($post->image){
+            Storage::delete($post->image);
+        }
+
         Post::destroy($post->id); //menghapus data berdasarkan post by id
         return redirect('/dashboard/posts')->with('success', 'post has been Deleted!');
     }
