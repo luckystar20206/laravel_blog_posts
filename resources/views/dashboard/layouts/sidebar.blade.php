@@ -24,6 +24,19 @@
             </li>
           </ul>
 
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>ADMINISTRATOR</span>
+          </h6>
+
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2 active" href="/dashboard/categories" style="color: black">
+                <span data-feather="grid" style="color:black"></span>
+                Post Categories
+              </a>
+            </li>
+          </ul>
+
           <hr class="my-3">
 
           <ul class="nav flex-column mb-auto">
