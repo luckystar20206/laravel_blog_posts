@@ -18,7 +18,7 @@ class IsAdmin
     {
 
     // Kondisi agar sidebar untuk admin tidak bisa diakses user 
-        if(!auth()->check() || auth()->user()->username !== 'Rangga Saputra'){
+        if(!auth()->check() || !auth()->user()->is_admin){
             abort(403);
     }
         return $next($request);

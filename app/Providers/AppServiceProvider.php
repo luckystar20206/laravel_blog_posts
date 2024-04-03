@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
 
         // Fungsi untuk membatasi halaman
         Gate::define('admin', function(User $user){
-            return $user->username === 'Rangga Saputra';
+            return $user->is_admin;
         });
     }
 }
