@@ -24,6 +24,8 @@
             </li>
           </ul>
 
+          {{-- fungsi can ini mengambil dari gates  yang ada di file appserviceproviders --}}
+          @can('admin')
           <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
             <span>ADMINISTRATOR</span>
           </h6>
@@ -36,7 +38,8 @@
               </a>
             </li>
           </ul>
-
+          @endcan
+          
           <hr class="my-3">
 
           <ul class="nav flex-column mb-auto">
