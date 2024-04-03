@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrapFive();
 
 
-        // Fungsi untuk membatasi halaman
+        // Fungsi untuk membatasi halaman berdasarkan field is_admin pada database user
         Gate::define('admin', function(User $user){
             return $user->is_admin;
         });
