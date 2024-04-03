@@ -14,11 +14,6 @@ class AdminCategoryController extends Controller
      */
     public function index()
     {
-        // Kondisi agar sidebar untuk admin tidak bisa diakses user 
-    if(!auth()->check() || auth()->user()->username !== 'Rangga Saputra'){
-        abort(403);
-    }
-
         return view('dashboard.categories.index', [
             'categories' => Category::all()
         ]);
