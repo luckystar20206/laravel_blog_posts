@@ -10,6 +10,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\GoogleController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -80,4 +82,6 @@ Route::resource('dashboard/posts', DashboardPostController::class)->middleware('
 // Route for admin category
 Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
 
-
+//Route For Login With Google
+Route::get('/auth/google', [GoogleController::class , 'redirectToGoogle'])->name('auth.google');
+Route::get('/auth/google/callback', [GoogleController::class , 'handleGoogleCallback']);

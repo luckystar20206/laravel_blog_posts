@@ -11,6 +11,7 @@
         "itsgoingd/clockwork": "^5.2",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
+        "laravel/socialite": "^5.12",
         "laravel/tinker": "^2.7"
     },
     "require-dev": {
