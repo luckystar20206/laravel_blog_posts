@@ -12,10 +12,12 @@ use Illuminate\Support\Facades\Hash;
 
 class GoogleController extends Controller{
 
+    //fungsi kredirect ke google
     public function redirectToGoogle(){
         return Socialite::driver('google')->redirect();
     }
 
+    //fungsi mengecek data user bila tidak ada daftarkan bila ada lanjut login
     public function handleGoogleCallback(){
         try{
 
