@@ -54,7 +54,24 @@
 
         
 
-      
+        <center class="mb-2">
+          <small style="text-center">OR</small>
+          </center>
+          <a href="{{ route('auth.google') }}" class="text-decoration-none">
+          <div id="g_id_onload"
+            data-client_id="936226908812-jsbinsh1a8j664ouehgpmpeu8lj0f572.apps.googleusercontent.com"
+            data-login_uri="http://localhost:8000/auth/google/callback"
+            data-auto_prompt="false">
+        </div>
+        <div class="g_id_signin mb-2"
+            data-type="standard"
+            data-size="large"
+            data-theme="outline"
+            data-text="sign_in_with"
+            data-shape="rectangular"
+            data-logo_alignment="left">
+        </div>
+      </a>
       </form>
       <small class="d-block text-center mt-3">Not Have Account? <a href="/register"> Register Now!</a></small>
 
