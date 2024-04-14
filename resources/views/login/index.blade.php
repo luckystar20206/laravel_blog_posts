@@ -6,7 +6,8 @@
   .google-sign-in-button {
     cursor: pointer;
     transition: background-color .3s, box-shadow .3s;
-        
+    
+    margin-top: 5px;
     padding: 12px 16px 12px 42px;
     border: none;
     border-radius: 3px;
@@ -20,7 +21,7 @@
     background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=);
     background-color: white;
     background-repeat: no-repeat;
-    background-position: 12px 11px;
+    background-position: 12px 14px;
 }
 
 .google-sign-in-button:hover {
@@ -113,19 +114,15 @@
           <small style="text-center">OR</small>
           </center>
           <a href="{{ route('auth.google') }}" class="text-decoration-none">
-          <div id="g_id_onload"
-            data-client_id="936226908812-jsbinsh1a8j664ouehgpmpeu8lj0f572.apps.googleusercontent.com"
-            data-login_uri="http://localhost:8000/auth/google/callback"
-            data-auto_prompt="false">
-        </div>
-        <div class="g_id_signin mb-2"
-            data-type="standard"
-            data-size="large"
-            data-theme="outline"
-            data-text="sign_in_with"
-            data-shape="rectangular"
-            data-logo_alignment="left">
-        </div>
+            <div id="g_id_onload" data-auto_prompt="false"></div>
+            <div class="g_id_signin mb-2"
+                 data-type="standard"
+                 data-size="large"
+                 data-theme="outline"
+                 data-text="sign_in_with"
+                 data-shape="rectangular"
+                 data-logo_alignment="left">
+            </div>
       </a> --}}
 
 
@@ -138,6 +135,7 @@
 </div>
 
 {{-- login With Google --}}
+
 <script src="https://accounts.google.com/gsi/client" async></script>
 
 @endsection
